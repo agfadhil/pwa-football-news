@@ -52,3 +52,7 @@ self.addEventListener("activate", function(event) {
     })
   );
 });
+
+function test() {
+  // blank
+}
