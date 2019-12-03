@@ -1,0 +1,19 @@
+.bg-gradient {
+  background: linear-gradient(135deg, rgba(116,235,213,1) 0%, rgba(172,182,229,1) 100%);
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#body-content {
+  flex: 1 0 auto;
+}
+
+.page-footer {
+  background: rgba(172,182,229,.7);
+  padding-top: 0;
+}
+

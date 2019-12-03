@@ -1,4 +1,4 @@
-const CACHE_NAME = "firstpwa";
+const CACHE_NAME = "addicon";
 var urlsToCache = [
   "/",
   "/nav.html",
@@ -52,7 +52,3 @@ self.addEventListener("activate", function(event) {
     })
   );
 });
-
-function test() {
-  // blank
-}

@@ -6,15 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>My First PWA - fadhil</title>
     <meta name="description" content="My first PWA" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/materialize.min.css" />
+    <link rel="stylesheet" href="css/fadhilstyle.css" />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#00897B"/>
+    <meta name="theme-color" content="#00897B" />
   </head>
 
-  <body>
-    <nav class="teal lighten-1" role="navigation">
+  <body class="grey lighten-4">
+    <nav class="bg-gradient" role="navigation">
       <div class="nav-wrapper container">
-        <a href="#" class="brand-logo" id="logo-container">My App</a>
+        <a href="#" class="brand-logo" id="logo-container">My Profile</a>
         <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
 
         <ul class="topnav right hide-on-med-and-down"></ul>
@@ -24,7 +29,19 @@
 
     <div class="container" id="body-content"></div>
 
+    <footer class="page-footer">
+      <div class="footer-copyright">
+        <div class="container">
+          © 2019 Fadhil
+          <a class="grey-text text-lighten-4 right" href="mailto:hi@afadhil.com"
+            >Contact Me</a
+          >
+        </div>
+      </div>
+    </footer>
+
     <script src="js/materialize.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/nav.js"></script>
     <script>
       // REGISTER SERVICE WORKER
@@ -40,6 +57,10 @@
             });
         });
       } else console.log("ServiceWorker belum didukung browser ini");
+
+      $(document).ready(function() {
+        $(".collapsible").collapsible();
+      });
     </script>
   </body>
 </html>
