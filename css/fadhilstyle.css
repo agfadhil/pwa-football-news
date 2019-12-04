@@ -17,3 +17,7 @@ body {
   padding-top: 0;
 }
 
+.social {
+  color: black !important;
+  font-size: small;
+}

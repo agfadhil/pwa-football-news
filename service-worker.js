@@ -1,4 +1,4 @@
-const CACHE_NAME = "addicon";
+const CACHE_NAME = "destinycache";
 var urlsToCache = [
   "/",
   "/nav.html",
@@ -6,9 +6,13 @@ var urlsToCache = [
   "/pages/home.html",
   "/pages/about.html",
   "/pages/contact.html",
+  "/pages/portfolio.html",
   "/css/materialize.min.css",
+  "/css/fadhilstyle.css",
   "/js/materialize.min.js",
-  "/js/nav.js"
+  "/js/nav.js",
+  "/images/devvsdesigner.gif",
+  "/images/saitama2.jpg"
 ];
 
 self.addEventListener("install", function(event) {

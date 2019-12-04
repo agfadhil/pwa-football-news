@@ -1,14 +1,14 @@
 {
   "name": "Fadhil's Profile PWA",
   "short_name": "My Profile PWA",
-  "description": "Aplikasi PWA Profil",
+  "description": "for Dicoding submission 1 PWA",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "rgba(116,235,213,1)",
   "theme_color": "rgba(116,235,213,1)",
   "icons": [
       {
-          "src": "icon.png",
+          "src": "my-icon-512.png",
           "sizes": "512x512",
           "type": "image/png"
       }
