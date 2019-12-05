@@ -12,7 +12,8 @@ var urlsToCache = [
   "/js/materialize.min.js",
   "/js/nav.js",
   "/images/devvsdesigner.gif",
-  "/images/saitama2.jpg"
+  "/images/saitama2.jpg",
+  "/manifest.json"
 ];
 
 self.addEventListener("install", function(event) {
