@@ -4,8 +4,8 @@
   "description": "for Dicoding submission 1 PWA",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#74ebd5",
-  "theme_color": "#74ebd5",
+  "background_color": "#ad5389",
+  "theme_color": "#ad5389",
   "icons": [
     {
       "src": "/images/favicons/my-icon-512.png",
