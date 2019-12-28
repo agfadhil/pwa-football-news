@@ -30,14 +30,14 @@ self.addEventListener("fetch", function(event) {
       .match(event.request, { cacheName: CACHE_NAME })
       .then(function(response) {
         if (response) {
-          console.log("ServiceWorker: Gunakan aset dari cache: ", response.url);
+          // console.log("ServiceWorker: Gunakan aset dari cache: ", response.url);
           return response;
         }
 
-        console.log(
-          "ServiceWorker: Memuat aset dari server: ",
-          event.request.url
-        );
+        // console.log(
+        //   "ServiceWorker: Memuat aset dari server: ",
+        //   event.request.url
+        // );
         return fetch(event.request);
       })
   );
@@ -49,7 +49,7 @@ self.addEventListener("activate", function(event) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
           if (cacheName != CACHE_NAME) {
-            console.log("ServiceWorker: cache " + cacheName + " dihapus");
+            // console.log("ServiceWorker: cache " + cacheName + " dihapus");
             return caches.delete(cacheName);
           }
         })
