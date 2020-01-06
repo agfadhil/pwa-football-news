@@ -104,10 +104,14 @@ function getTeamDetailById() {
               </div>
               <div class="card-content">
                 <span class="card-title"><strong>${data.name}</strong></span>
-                <p>
-                  I am a very simple person. I am good at making you smile and angry.
-                  Very short self description, right? I knew It. *yawn
-                </p>
+                <article>
+                  <label>test</label>
+                  <p>test</p>
+                </article>
+                <article>
+                  <label>test</label>
+                  <p>test</p>
+                </article>
               </div>
             </div>
           </div>
