@@ -9,6 +9,7 @@ var urlsToCache = [
   "/pages/portfolio.html",
   "/css/materialize.min.css",
   "/css/fadhilstyle.css",
+  "/js/api.js",
   "/js/materialize.min.js",
   "/js/nav.js",
   "/images/devvsdesigner.gif",
