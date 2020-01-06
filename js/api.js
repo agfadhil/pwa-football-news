@@ -103,15 +103,37 @@ function getTeamDetailById() {
                 >
               </div>
               <div class="card-content">
-                <span class="card-title"><strong>${data.name}</strong></span>
-                <article>
-                  <label>test</label>
-                  <p>test</p>
-                </article>
-                <article>
-                  <label>test</label>
-                  <p>test</p>
-                </article>
+                <span class="card-title"><strong>${data.name} </strong>(${data.tla})</span>
+                <div class="team-content">
+                  <article class="team-article">
+                    <label class="team-label">Address</label>
+                    <p class="label-desc">${data.address || "Not Available"}</p>
+                  </article>
+                  <article class="team-article">
+                    <label class="team-label">Phone</label>
+                    <p class="label-desc">${data.phone || "Not Available"}</p>
+                  </article>
+                  <article class="team-article">
+                    <label class="team-label">Email</label>
+                    <p class="label-desc">${data.email || "Not Available"}</p>
+                  </article>
+                  <article class="team-article">
+                    <label class="team-label">Founded</label>
+                    <p class="label-desc">${data.founded || "Not Available"}</p>
+                  </article>
+                  <article class="team-article">
+                    <label class="team-label">Club Colors</label>
+                    <p class="label-desc">${data.clubColors || "Not Available"}</p>
+                  </article>
+                  <article class="team-article">
+                    <label class="team-label">Venue</label>
+                    <p class="label-desc">${data.venue || "Not Available"}</p>
+                  </article>
+                  <article class="team-article">
+                    <label class="team-label">Website</label>
+                    <p class="label-desc"><a href="${data.website || "#"}">${data.website || "Not Available"}</a></p>
+                  </article>
+                </div>
               </div>
             </div>
           </div>

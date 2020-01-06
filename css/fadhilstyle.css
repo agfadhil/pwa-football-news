@@ -14,6 +14,10 @@ body {
   flex: 1 0 auto;
 }
 
+.label-desc {
+  font-weight: bold;
+}
+
 .page-footer {
   background: #2c3e50;
   padding-top: 0;
@@ -24,11 +28,24 @@ body {
   font-size: small;
 }
 
-.team-list {
-  display: block;
+.team-article {
+  margin-top: 1rem;
 }
 
 .team-img {
   width: 200px !important;
   margin: auto;
+}
+
+.team-content {
+  margin-top: 2rem;
+}
+
+.team-label {
+  font-size: 1.2rem;
+  margin-top: 1em;
+}
+
+.team-list {
+  display: block;
 }
