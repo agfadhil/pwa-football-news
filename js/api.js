@@ -134,7 +134,7 @@ function getTeamDetailById() {
       .then(status)
       .then(json)
       .then(function(data) {
-        let imageUrl = data.crestUrl.replace(/^http:\/\//i, 'https://');
+        let imageUrl = data.crestUrl.replace(/^http:\/\//i, 'https://') || "#";
         var teamHTML = `
           <div class="row">
             <div class="col s12 l12">
@@ -209,20 +209,100 @@ function getFavoritedTeam() {
     var teamHTML = "";
     teams.forEach(function(team) {
       // var description = article.post_content.substring(0,100);
+      let imageUrl = team.crestUrl.replace(/^http:\/\//i, 'https://') || "#";
       teamHTML += `
-                  <div class="card">
-                    <a href="./article.html?id=${team.id}">
-                      <div class="card-image waves-effect waves-block waves-light">
-                        <img src="${team.crestUrl}" />
-                      </div>
-                    </a>
-                    <div class="card-content">
-                      <span class="card-title truncate">${team.name}</span>
-                    </div>
-                  </div>
-                `;
+        <div class="row">
+          <div class="col s12 l12">
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator team-favorited-img" src="${imageUrl}" />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"><strong>${team.name}</strong>
+                  <i class="material-icons right">more_vert</i>
+                </span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Cmon~
+                  <i class="material-icons right">close</i>
+                </span>
+                <p>
+                  Let me show you this team <strong>details</strong> <br/>
+                  Just
+                  <a target="_self" href="./team.html?id=${team.id}&saved=true">
+                    <strong> &gt;&gt;&gt;click here&lt;&lt;&lt; </strong>
+                  </a>
+                </p>
+                <p>
+                  Either if you want to <strong>delete this team</strong> <br/>
+                  Then
+                  <a target="_self" href="#favorited" onclick="deleteFavoriteTeam(${team.id})">
+                    <strong> &gt;&gt;&gt;delete me&lt;&lt;&lt; </strong>
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
     });
     // Sisipkan komponen card ke dalam elemen dengan id #body-content
     document.getElementById("teams").innerHTML = teamHTML;
+  });
+}
+
+function getFavoritedTeamById() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var idParam = urlParams.get("id");
+  
+  getById(idParam).then(function(data) {
+    console.log(data);
+    let imageUrl = data.crestUrl.replace(/^http:\/\//i, 'https://');
+    var teamHTML = `
+      <div class="row">
+        <div class="col s12 l12">
+          <div class="card">
+            <div class="card-image">
+              <img class="team-img" src="${imageUrl || "#"}" />
+            </div>
+            <div class="card-content">
+              <span class="card-title"><strong>${data.name} </strong>(${data.tla})</span>
+              <div class="team-content">
+                <article class="team-article">
+                  <label class="team-label">Address</label>
+                  <p class="label-desc">${data.address || "Not Available"}</p>
+                </article>
+                <article class="team-article">
+                  <label class="team-label">Phone</label>
+                  <p class="label-desc">${data.phone || "Not Available"}</p>
+                </article>
+                <article class="team-article">
+                  <label class="team-label">Email</label>
+                  <p class="label-desc">${data.email || "Not Available"}</p>
+                </article>
+                <article class="team-article">
+                  <label class="team-label">Founded</label>
+                  <p class="label-desc">${data.founded || "Not Available"}</p>
+                </article>
+                <article class="team-article">
+                  <label class="team-label">Club Colors</label>
+                  <p class="label-desc">${data.clubColors || "Not Available"}</p>
+                </article>
+                <article class="team-article">
+                  <label class="team-label">Venue</label>
+                  <p class="label-desc">${data.venue || "Not Available"}</p>
+                </article>
+                <article class="team-article">
+                  <label class="team-label">Website</label>
+                  <p class="label-desc"><a href="${data.website || "#"}">${data.website || "Not Available"}</a></p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    // Sisipkan komponen card ke dalam elemen dengan id #content
+    document.getElementById("body-content").innerHTML = teamHTML;
   });
 }

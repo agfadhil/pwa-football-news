@@ -34,11 +34,16 @@ body {
 
 .team-img {
   width: 200px !important;
-  margin: auto;
+  margin: 1rem auto;
 }
 
 .team-content {
   margin-top: 2rem;
+}
+
+.team-favorited-img {
+  width: 100px !important;
+  margin: 1rem auto;
 }
 
 .team-label {
