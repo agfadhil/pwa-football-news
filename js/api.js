@@ -32,7 +32,7 @@ function getStandings() {
                 <li class="collection-item avatar">
                   <img src="${imageUrl}" alt="club icon" class="circle">
                   <span class="title">${result.team.name}</span>
-                  <p>Points : ${result.points}</p>
+                  <p>Points : ${result.points} | Won: ${result.won} | Draw: ${result.draw} | Lost: ${$result.lost}</p>
                 </li>
               </a>    
             `;
@@ -55,8 +55,8 @@ function getStandings() {
           <a class="team-list" href="../team.html?id=${result.team.id}">
             <li class="collection-item avatar">
               <img src="${imageUrl}" alt="club icon" class="circle">
-              <span class="title">${result.team.name}</span>
-              <p>Points : ${result.points}</p>
+              <span class="title title-standings">${result.team.name}</span>
+              <p>Points : ${result.points} | Won: ${result.won} | Draw: ${result.draw} | Lost: ${result.lost}</p>
             </li>
           </a>
         `;
@@ -79,7 +79,7 @@ function getTeamDetailById() {
               <div class="row">
                 <div class="col s12 l12">
                   <div class="card">
-                    <div class="card-image">
+                    <div class="card-image team-img-container">
                       <img class="team-img" src="${imageUrl}" />
                       <a id="favorite" class="btn-floating btn-large halfway-fab waves-effect waves-light bg-gradient">
                         <i class="material-icons">star</i>
@@ -114,7 +114,7 @@ function getTeamDetailById() {
                         </article>
                         <article class="team-article">
                           <label class="team-label">Website</label>
-                          <p class="label-desc"><a href="${data.website || "#"}">${data.website || "Not Available"}</a></p>
+                          <p class="label-desc"><a target="_blank" href="${data.website || "#"}">${data.website || "Not Available"}</a></p>
                         </article>
                       </div>
                     </div>
@@ -139,7 +139,7 @@ function getTeamDetailById() {
           <div class="row">
             <div class="col s12 l12">
               <div class="card">
-                <div class="card-image">
+                <div class="card-image team-img-container">
                   <img class="team-img" src="${imageUrl}" />
                   <a id="favorite" class="btn-floating btn-large halfway-fab waves-effect waves-light bg-gradient">
                     <i class="material-icons">star</i>
@@ -174,7 +174,7 @@ function getTeamDetailById() {
                     </article>
                     <article class="team-article">
                       <label class="team-label">Website</label>
-                      <p class="label-desc"><a href="${data.website || "#"}">${data.website || "Not Available"}</a></p>
+                      <p class="label-desc"><a target="_blank" href="${data.website || "#"}">${data.website || "Not Available"}</a></p>
                     </article>
                   </div>
                 </div>
@@ -194,7 +194,7 @@ function getTeamDetailById() {
 
 function handleFavorite(data) {
   var favorite = document.getElementById("favorite");
-  console.log(favorite, data)
+  // console.log(favorite, data)
   favorite.onclick = function() {
     // console.log(data);
     saveFavTeam(data);
@@ -229,14 +229,14 @@ function getFavoritedTeam() {
                 <p>
                   Let me show you this team <strong>details</strong> <br/>
                   Just
-                  <a target="_self" href="./team.html?id=${team.id}&saved=true">
+                  <a href="./team.html?id=${team.id}&saved=true">
                     <strong> &gt;&gt;&gt;click here&lt;&lt;&lt; </strong>
                   </a>
                 </p>
                 <p>
                   Either if you want to <strong>delete this team</strong> <br/>
                   Then
-                  <a target="_self" href="#favorited" onclick="deleteFavoriteTeam(${team.id})">
+                  <a href="#favorited" onclick="deleteFavoriteTeam(${team.id})">
                     <strong> &gt;&gt;&gt;delete me&lt;&lt;&lt; </strong>
                   </a>
                 </p>

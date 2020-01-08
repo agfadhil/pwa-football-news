@@ -37,6 +37,10 @@ body {
   margin: 1rem auto;
 }
 
+.team-img-container {
+  padding: 1rem;
+}
+
 .team-content {
   margin-top: 2rem;
 }
@@ -53,4 +57,9 @@ body {
 
 .team-list {
   display: block;
+}
+
+.title-standings {
+  color: black;
+  font-weight: bold;
 }

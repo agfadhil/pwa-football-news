@@ -1,0 +1,25 @@
+{
+  "name": "pwa-football-news",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">\r   <a href=\"http://materializecss.com/\">\r     <img src=\"http://materializecss.com/res/materialize.svg\" width=\"150\">\r   </a>\r </p>",
+  "main": "service-worker.js",
+  "dependencies": {
+    "web-push": "^3.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "web-push": "web-push generate-vapid-keys --json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afadhil/pwa-football-news.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afadhil/pwa-football-news/issues"
+  },
+  "homepage": "https://github.com/afadhil/pwa-football-news#readme"
+}

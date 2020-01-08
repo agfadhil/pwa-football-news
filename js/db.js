@@ -1,8 +1,8 @@
 var dbPromised = idb.open("team-football", 1, function(upgradeDb) {
-  var articlesObjectStore = upgradeDb.createObjectStore("teams", {
+  var teamsObjectStore = upgradeDb.createObjectStore("teams", {
     keyPath: "id"
   });
-  articlesObjectStore.createIndex("name", "name", { unique: false });
+  teamsObjectStore.createIndex("name", "name", { unique: false });
 });
 
 function saveFavTeam(team) {
@@ -10,13 +10,12 @@ function saveFavTeam(team) {
     .then(function(db) {
       var tx = db.transaction("teams", "readwrite");
       var store = tx.objectStore("teams");
-      console.log("dari savfavteam", team);
       store.put(team);
       return tx.complete;
     })
     .then(function() {
-      alert("Good! you just had successfully added this team into your Favorited Team list")
-      console.log("Team berhasil di simpan.");
+      showNotif("Favorited, wow cool!!", "you just had successfully added this team into your Favorited Team list");
+      // console.log("Team saved yeah.");
     });
 }
 
@@ -58,6 +57,8 @@ function deleteFavoriteTeam(id) {
       return tx.complete;
     })
     .then(function() {
-      console.log("team has been deleted from favorited team");
+      showNotif("Ouww.. why..", "you just deleted an awesome team tho :(");
+      window.location.reload();
+      // console.log("team has been deleted from favorited team");
     })
 }

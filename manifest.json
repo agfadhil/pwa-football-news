@@ -1,10 +1,10 @@
 {
-  "name": "Fadhil's Profile PWA",
+  "name": "PWA Football News by Fadhil",
   "short_name": "Premier League PWA",
-  "description": "for Dicoding submission 1 PWA",
+  "description": "for Dicoding submission 2 PWA",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#2980b9",
+  "background_color": "#2c3e50",
   "theme_color": "#2c3e50",
   "icons": [
     {
@@ -17,5 +17,8 @@
       "sizes": "192x192",
       "type": "image/png"
     }
-  ]
+  ],
+  "gcm_sender_id": "635580780494",
+  "publickey": "BIxGtzgStgVUQbMKd8ahYyB1Pq0WKnNtsx62PZAzULVukBnTdYCOGYAtRc1kbWGq22LaApLbj2UWK_8mY-PaDzY",
+  "privatekey": "68XmaSdgB9d2xZjz4LHmtS-6uw1SM4yt69C9QySoiQw"
 }
