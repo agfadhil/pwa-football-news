@@ -32,7 +32,7 @@ function getStandings() {
                 <li class="collection-item avatar">
                   <img src="${imageUrl}" alt="club icon" class="circle">
                   <span class="title">${result.team.name}</span>
-                  <p>Points : ${result.points} | Won: ${result.won} | Draw: ${result.draw} | Lost: ${$result.lost}</p>
+                  <p>Points : ${result.points} | Won: ${result.won} | Draw: ${result.draw} | Lost: ${result.lost}</p>
                 </li>
               </a>    
             `;
