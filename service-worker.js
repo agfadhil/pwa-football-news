@@ -2,7 +2,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 
 workbox ? console.log(`Workbox success loaded`) : console.log(`Workbox failed`);
 
-const CACHE_NAME = "pwaFootballNews";
+// const CACHE_NAME = "pwaFootballNews";
 
 workbox.precaching.precacheAndRoute([
   { url: '/', revision: '1' },
@@ -63,11 +63,6 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   new RegExp('.*\.js'),
-  workbox.strategies.cacheFirst()
-);
-
-workbox.routing.registerRoute(
-  new RegExp('/css'),
   workbox.strategies.cacheFirst()
 );
 

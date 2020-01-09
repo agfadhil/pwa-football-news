@@ -70,6 +70,7 @@ function getTeamDetailById() {
   return new Promise(function(resolve, reject) {
     var urlParams = new URLSearchParams(window.location.search);
     var idParam = urlParams.get("id");
+
     if ("caches" in window) {
       caches.match(base_url + "teams/" + idParam).then(function(response) {
         if (response) {
