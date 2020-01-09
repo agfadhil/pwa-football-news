@@ -18,7 +18,5 @@
       "type": "image/png"
     }
   ],
-  "gcm_sender_id": "635580780494",
-  "publickey": "BIxGtzgStgVUQbMKd8ahYyB1Pq0WKnNtsx62PZAzULVukBnTdYCOGYAtRc1kbWGq22LaApLbj2UWK_8mY-PaDzY",
-  "privatekey": "68XmaSdgB9d2xZjz4LHmtS-6uw1SM4yt69C9QySoiQw"
+  "gcm_sender_id": "635580780494"
 }
