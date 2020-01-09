@@ -1,4 +1,4 @@
-const CACHE_NAME = "trynotifcache";
+const CACHE_NAME = "submission2cache";
 var urlsToCache = [
   "/",
   "/nav.html",
@@ -8,6 +8,7 @@ var urlsToCache = [
   "/css/materialize.min.css",
   "/css/fadhilstyle.css",
   "/js/api.js",
+  "/js/base.js",
   "/js/materialize.min.js",
   "/js/nav.js",
   "/js/notif.js",
