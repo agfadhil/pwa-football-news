@@ -28,7 +28,7 @@ function getStandings() {
           data.standings[0].table.forEach(function(result) {
             let imageUrl = result.team.crestUrl.replace(/^http:\/\//i, 'https://');
             standingsHTML += `
-              <a class="team-list" href="../team.html?id=${result.team.id}">
+              <a class="team-list" href="team.html?id=${result.team.id}">
                 <li class="collection-item avatar">
                   <img src="${imageUrl}" alt="club icon" class="circle">
                   <span class="title">${result.team.name}</span>
@@ -52,7 +52,7 @@ function getStandings() {
       data.standings[0].table.forEach(function(result) {
         let imageUrl = result.team.crestUrl.replace(/^http:\/\//i, 'https://');
         standingsHTML += `
-          <a class="team-list" href="../team.html?id=${result.team.id}">
+          <a class="team-list" href="team.html?id=${result.team.id}">
             <li class="collection-item avatar">
               <img src="${imageUrl}" alt="club icon" class="circle">
               <span class="title title-standings">${result.team.name}</span>
