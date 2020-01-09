@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Team Details PWA" />
+    <meta name="theme-color" content="#2c3e50" />
+    <title>Team Details</title>
+    <link rel="stylesheet" href="css/materialize.min.css" />
+    <link rel="stylesheet" href="css/fadhilstyle.css" />
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  </head>
+  <body class="grey lighten-2">
+    <!-- Navigasi -->
+    <nav class="bg-gradient" role="navigation">
+      <div class="nav-wrapper container">
+        <a href="#" class="brand-logo" id="logo-container">Team Details</a>
+        <a href="./index.html" class="sidenav-trigger" data-target="nav-mobile">
+          <i class="material-icons">arrow_back</i>
+        </a>
+        <ul class="topnav right hide-on-med-and-down"></ul>
+        <ul class="sidenav" id="nav-mobile"></ul>
+      </div>
+    </nav>
+    <!-- Akhir Navigasi -->
+
+    <div class="container" id="body-content"></div>
+
+    <footer class="page-footer">
+      <div class="footer-copyright">
+        <div class="container">
+          © 2019 Fadhil
+          <a class="grey-text text-lighten-4 right" href="mailto:hi@afadhil.com"
+            >Contact Me</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js"
+    ></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/notif.js"></script>
+    <script src="js/idb.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/base.js"></script>
+
+    <script>
+      // Periksa service worker
+      if (!('serviceWorker' in navigator)) {
+          console.log("Service worker tidak didukung browser ini.");
+      } else {
+        registerServiceWorker();
+        requestPermission();
+      }
+      
+      document.addEventListener("DOMContentLoaded", function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var isFromSaved = urlParams.get("saved");
+
+        if (isFromSaved) {
+          getFavoritedTeamById();
+        } else getTeamDetailById();
+        
+      });
+
+    </script>
+  </body>
+</html>
