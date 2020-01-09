@@ -1,0 +1,2 @@
+on Firebase : https://pwa-football-news.firebaseapp.com/
+on my own (domain) : https://pwa-football-news.afadhil.com/
