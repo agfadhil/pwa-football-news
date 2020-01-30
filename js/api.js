@@ -1,5 +1,5 @@
-var base_url = "https://api.football-data.org/v2/";
-var mytoken = "1498ffb00ea243209eafc6c0d1874a4e";
+const base_url = "https://api.football-data.org/v2/";
+const mytoken = "1498ffb00ea243209eafc6c0d1874a4e";
 
 function status(response) {
   if (response.status !== 200) {
@@ -18,13 +18,35 @@ function error(error) {
   console.log("Error : " + error);
 }
 
+const fetchApi = function(url) {
+  return fetch(url, {
+    headers: {
+      'X-Auth-Token': mytoken
+    }
+  });
+};
+
+const showFloatButton = function(id) {
+  let floatButtonElement = `<a id="favorite" class="btn-floating btn-large halfway-fab waves-effect waves-light bg-gradient">
+                        <i class="material-icons">star</i>
+                      </a>`;
+  let blankElement = `<span id="favorite"></span>`;                  
+  logger(checkById(id))
+  return checkById(id) ? "ada" : "ga ada";
+  // return Object.values(checkById(id)) ? "ada" : "ga ada"
+  // console.log("di atas")
+  // return getById(id)
+  //   .then(resolve('ada'))
+    // .catch(function(){ return 'ga ada '});
+  // console.log("di bawah")
+  }
+
 function getStandings() {
-  
   if ('caches' in window) {
     caches.match(base_url + "competitions/2021/standings").then(function(response) {
       if (response) {
         response.json().then(function (data) {
-          var standingsHTML = "";
+          let standingsHTML = "";
           data.standings[0].table.forEach(function(result) {
             let imageUrl = result.team.crestUrl.replace(/^http:\/\//i, 'https://');
             standingsHTML += `
@@ -43,7 +65,8 @@ function getStandings() {
     })
   }
 
-  fetch(base_url + "competitions/2021/standings", { headers: { 'X-Auth-Token' : mytoken }} )
+  // fetch(base_url + "competitions/2021/standings", { headers: { 'X-Auth-Token' : mytoken }} )
+  fetchApi(base_url + "competitions/2021/standings")
     .then(status)
     .then(json)
     .then(function (data) {
@@ -68,23 +91,21 @@ function getStandings() {
 
 function getTeamDetailById() {
   return new Promise(function(resolve, reject) {
-    var urlParams = new URLSearchParams(window.location.search);
-    var idParam = urlParams.get("id");
+    const urlParams = new URLSearchParams(window.location.search);
+    const idParam = urlParams.get("id");
 
     if ("caches" in window) {
       caches.match(base_url + "teams/" + idParam).then(function(response) {
         if (response) {
           response.json().then(function(data) {
             let imageUrl = data.crestUrl.replace(/^http:\/\//i, 'https://');
-            var teamHTML = `
+            const teamHTML = `
               <div class="row">
                 <div class="col s12 l12">
                   <div class="card">
                     <div class="card-image team-img-container">
                       <img class="team-img" src="${imageUrl}" />
-                      <a id="favorite" class="btn-floating btn-large halfway-fab waves-effect waves-light bg-gradient">
-                        <i class="material-icons">star</i>
-                      </a>
+                      ${showFloatButton(data.id)}
                     </div>
                     <div class="card-content">
                       <span class="card-title"><strong>${data.name} </strong>(${data.tla})</span>
@@ -131,20 +152,19 @@ function getTeamDetailById() {
         }
       });
     }
-    fetch(base_url + "teams/" + idParam, { headers: { 'X-Auth-Token' : mytoken }} )
+    // fetch(base_url + "teams/" + idParam, { headers: { 'X-Auth-Token' : mytoken }} )
+    fetchApi(base_url + "teams/" + idParam)
       .then(status)
       .then(json)
       .then(function(data) {
         let imageUrl = data.crestUrl.replace(/^http:\/\//i, 'https://') || "#";
-        var teamHTML = `
+        const teamHTML = `
           <div class="row">
             <div class="col s12 l12">
               <div class="card">
                 <div class="card-image team-img-container">
                   <img class="team-img" src="${imageUrl}" />
-                  <a id="favorite" class="btn-floating btn-large halfway-fab waves-effect waves-light bg-gradient">
-                    <i class="material-icons">star</i>
-                  </a>
+                  ${showFloatButton(data.id)}
                 </div>
                 <div class="card-content">
                   <span class="card-title"><strong>${data.name} </strong>(${data.tla})</span>
@@ -194,7 +214,7 @@ function getTeamDetailById() {
 }
 
 function handleFavorite(data) {
-  var favorite = document.getElementById("favorite");
+  const favorite = document.getElementById("favorite");
   // console.log(favorite, data)
   favorite.onclick = function() {
     // console.log(data);
@@ -207,9 +227,9 @@ function getFavoritedTeam() {
   getAll().then(function(teams) {
     console.log("from getfavteam :", teams);
     // Menyusun komponen card artikel secara dinamis
-    var teamHTML = "";
+    let teamHTML = "";
     teams.forEach(function(team) {
-      // var description = article.post_content.substring(0,100);
+      // const description = article.post_content.substring(0,100);
       let imageUrl = team.crestUrl.replace(/^http:\/\//i, 'https://') || "#";
       teamHTML += `
         <div class="row">
@@ -247,19 +267,18 @@ function getFavoritedTeam() {
         </div>
       `;
     });
-    // Sisipkan komponen card ke dalam elemen dengan id #body-content
     document.getElementById("teams").innerHTML = teamHTML;
   });
 }
 
 function getFavoritedTeamById() {
-  var urlParams = new URLSearchParams(window.location.search);
-  var idParam = urlParams.get("id");
+  const urlParams = new URLSearchParams(window.location.search);
+  const idParam = urlParams.get("id");
   
   getById(idParam).then(function(data) {
     console.log(data);
     let imageUrl = data.crestUrl.replace(/^http:\/\//i, 'https://');
-    var teamHTML = `
+    const teamHTML = `
       <div class="row">
         <div class="col s12 l12">
           <div class="card">
@@ -303,7 +322,6 @@ function getFavoritedTeamById() {
         </div>
       </div>
     `;
-    // Sisipkan komponen card ke dalam elemen dengan id #content
     document.getElementById("body-content").innerHTML = teamHTML;
   });
 }

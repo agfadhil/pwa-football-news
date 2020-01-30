@@ -48,6 +48,26 @@ function getById(id) {
   });
 }
 
+function checkById(id) {
+  dbPromised
+    .then(function(db) {
+      id = parseInt(id, 10)
+      var tx = db.transaction("teams", "readonly");
+      var store = tx.objectStore("teams");
+      return store.get(id);
+    })
+    .then(function(res) { 
+      res === undefined ? resolve("kosong") : resolve('ada');
+    })
+    // .cath(function() { return false})
+  
+  // id = parseInt(id, 10)
+  // var tx = dbPromised.transaction("teams", "readonly");
+  // var store = tx.objectStore("teams");
+  // store.get(id);
+  // logger(store.get(id));
+}
+
 function deleteFavoriteTeam(id) {
   dbPromised
     .then(function(db) {

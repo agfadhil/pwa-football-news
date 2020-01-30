@@ -18,7 +18,9 @@ workbox.precaching.precacheAndRoute([
   { url: '/images/favicons/favicon.ico', revision: '1' },
   { url: '/images/favicons/my-icon-192.png', revision: '1' },
   { url: '/manifest.json', revision: '1' },
-]);
+], {
+  ignoreURLParametersMatching: [/.*/]
+});
 
 // from CSS Google Fonts
 workbox.routing.registerRoute(
