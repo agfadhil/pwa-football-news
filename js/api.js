@@ -26,7 +26,7 @@ const fetchApi = function(url) {
   });
 };
 
-const showFloatButton = function(id) {
+const showFloatButton = (id) => {
   let floatButtonElement = `<a id="favorite" class="btn-floating btn-large halfway-fab waves-effect waves-light bg-gradient">
                         <i class="material-icons">star</i>
                       </a>`;
